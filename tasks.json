@@ -1,0 +1,79 @@
+{
+  "projects": [
+    { /*project1*/
+      "project_id": 1,
+      "name": "Project Alpha",
+      "team": [
+        { /*member1*/
+          "member_id": 101,
+          "name": "Alice",
+          "role": "Developer",
+          "tasks": [
+            {
+              "task_id": 1001,
+              "description": "Develop login module",
+              "status": "completed",
+              "hours_logged": 10
+            },
+            {
+              "task_id": 1002,
+              "description": "Implement OAuth",
+              "status": "in_progress",
+              "hours_logged": 5
+            }
+          ]
+        },
+        { /*member2*/
+          "member_id": 102,
+          "name": "Bob",
+          "role": "Tester",
+          "tasks": [
+            {
+              "task_id": 1003,
+              "description": "Test login module",
+              "status": "completed",
+              "hours_logged": 4
+            },
+            {
+              "task_id": 1004,
+              "description": "Prepare test cases for OAuth",
+              "status": "in_progress",
+              "hours_logged": 2
+            }
+          ]
+        }
+      ]
+    },
+    { /*project2*/
+      "project_id": 2,
+      "name": "Project Beta",
+      "team": [
+        { /*member1*/
+          "member_id": 103,
+          "name": "Charlie",
+          "role": "Developer",
+          "tasks": [
+            {
+              "task_id": 1005,
+              "description": "Design database schema",
+              "status": "completed",
+              "hours_logged": 8
+            },
+            {
+              "task_id": 1006,
+              "description": "Develop API endpoints",
+              "status": "in_progress",
+              "hours_logged": 7
+            }
+          ]
+        },
+        { /*member2*/
+          "member_id": 104,
+          "name": "Dave",
+          "role": "Project Manager",
+          "tasks": []
+        }
+      ]
+    }
+  ]
+}
