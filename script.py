@@ -102,7 +102,17 @@ for key, value in data.items():
                     print(f"Member Tasks: {tasks_name}")
                 else:
                     print(f"No tasks assigend to {member_name}")
-                    
+                    #--> displays:
+                    #Project Name: Project Alpha
+                    # Member Name: Alice
+                    # Member Tasks: ['Develop login module', 'Implement OAuth']
+                    # Member Name: Bob
+                    # Member Tasks: ['Test login module', 'Prepare test cases for OAuth']
+                    # Project Name: Project Beta
+                    # Member Name: Charlie
+                    # Member Tasks: ['Design database schema', 'Develop API endpoints']
+                    # Member Name: Dave
+                    # No tasks assigend to Dave
 
 
 
