@@ -139,7 +139,7 @@ for project in data["projects"]:
 print("****************************************************************")
 
 # list of all in-progress tasks with team member name and project name
-in_progress_tasks= []
+in_progress_tasks = []
 for project in data["projects"]:
     project_name = project["name"]
     for team_info in project["team"]:
@@ -147,21 +147,27 @@ for project in data["projects"]:
         for task in team_info["tasks"]:
             if task["status"] == "in_progress":
                 task_name = task["description"]
-                in_progress_tasks.append([f"Task Description: {task_name}, Project Name: {project_name}, Member Name: {member_name}"])
+                in_progress_tasks.append([f"Task Description: {task_name}, Project Name: {
+                                         project_name}, Member Name: {member_name}"])
 print("In Progress Tasks:", in_progress_tasks)
-#displays:
+# displays:
 # In Progress Tasks: [
-    # [
-        # 'Task Description: Implement OAuth,
-        # Project Name: Project Alpha,
-        # Member Name: Alice'],
-    # [
-        # 'Task Description: Prepare test cases for OAuth,
-        # Project Name: Project Alpha,
-        # Member Name: Bob'],
-    # [
-        # 'Task Description: Develop API endpoints,
-        # Project Name: Project Beta,
-        # Member Name: Charlie'
-    # ]
+# [
+# 'Task Description: Implement OAuth,
+# Project Name: Project Alpha,
+# Member Name: Alice'
+# ],
+# [
+# 'Task Description: Prepare test cases for OAuth,
+# Project Name: Project Alpha,
+# Member Name: Bob'
+# ],
+# [
+# 'Task Description: Develop API endpoints,
+# Project Name: Project Beta,
+# Member Name: Charlie'
 # ]
+# ]
+print("****************************************************************")
+
+#summery of all projects with completed and in progress tasks percentage

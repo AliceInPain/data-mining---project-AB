@@ -79,9 +79,3 @@
 }
 
 
-
-in_progress_tasks:[
-  Project Name: {project_name}
-  Task: {task_name}
-  Member Name: {member_name}
-]
