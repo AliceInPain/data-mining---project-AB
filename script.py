@@ -147,8 +147,8 @@ for project in data["projects"]:
         for task in team_info["tasks"]:
             if task["status"] == "in_progress":
                 task_name = task["description"]
-                in_progress_tasks.append(f"Task: {task_name}, Project Name: {project_name}, Member Name: {member_name}")
-pprint(in_progress_tasks)
+                in_progress_tasks.append([f"Task Description: {task_name}, Project Name: {project_name}, Member Name: {member_name}"])
+print("In Progress Tasks:", in_progress_tasks)
 #displays:
 # ['Task: Implement OAuth, Project Name: Project Alpha, Member Name: Alice',
 #  'Task: Prepare test cases for OAuth, Project Name: Project Alpha, Member '
