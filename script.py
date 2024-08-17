@@ -150,8 +150,18 @@ for project in data["projects"]:
                 in_progress_tasks.append([f"Task Description: {task_name}, Project Name: {project_name}, Member Name: {member_name}"])
 print("In Progress Tasks:", in_progress_tasks)
 #displays:
-# ['Task: Implement OAuth, Project Name: Project Alpha, Member Name: Alice',
-#  'Task: Prepare test cases for OAuth, Project Name: Project Alpha, Member '
-#  'Name: Bob',
-#  'Task: Develop API endpoints, Project Name: Project Beta, Member Name: '
-#  'Charlie']
+# In Progress Tasks: [
+    # [
+        # 'Task Description: Implement OAuth,
+        # Project Name: Project Alpha,
+        # Member Name: Alice'],
+    # [
+        # 'Task Description: Prepare test cases for OAuth,
+        # Project Name: Project Alpha,
+        # Member Name: Bob'],
+    # [
+        # 'Task Description: Develop API endpoints,
+        # Project Name: Project Beta,
+        # Member Name: Charlie'
+    # ]
+# ]
