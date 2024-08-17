@@ -1,5 +1,6 @@
 from pprint import pprint
 
+
 data = {
     "projects": [
         {
@@ -80,6 +81,9 @@ data = {
     ]
 }
 
+
+
+        
 # list of all projects with members and tasks
 for key, value in data.items():
     if key == "projects":
@@ -150,24 +154,24 @@ for project in data["projects"]:
                 in_progress_tasks.append([f"Task Description: {task_name}, Project Name: {
                                          project_name}, Member Name: {member_name}"])
 print("In Progress Tasks:", in_progress_tasks)
-# displays:
-# In Progress Tasks: [
-# [
-# 'Task Description: Implement OAuth,
-# Project Name: Project Alpha,
-# Member Name: Alice'
-# ],
-# [
-# 'Task Description: Prepare test cases for OAuth,
-# Project Name: Project Alpha,
-# Member Name: Bob'
-# ],
-# [
-# 'Task Description: Develop API endpoints,
-# Project Name: Project Beta,
-# Member Name: Charlie'
-# ]
-# ]
+    # displays:
+    # In Progress Tasks: [
+    # [
+    # 'Task Description: Implement OAuth,
+    # Project Name: Project Alpha,
+    # Member Name: Alice'
+    # ],
+    # [
+    # 'Task Description: Prepare test cases for OAuth,
+    # Project Name: Project Alpha,
+    # Member Name: Bob'
+    # ],
+    # [
+    # 'Task Description: Develop API endpoints,
+    # Project Name: Project Beta,
+    # Member Name: Charlie'
+    # ]
+    # ]
 print("****************************************************************")
 
 #summery of all projects with completed and in progress tasks divided by 100
@@ -175,18 +179,12 @@ print("****************************************************************")
 # how many tasks out of 6 are in progress? 3 out of 6
 # all these out of 100
 
-# summery = {
-#     project_name: "Project Alpha",
-#     completed_tasks_perc: int,
-#     in_progress_tasks_perc: int
-# }
 
-# total_tasks = 6
-# completed_tasks = 3
-# in_progress_tasks = 3
-# completion_percentage = (completed_tasks / total_tasks) * 100
-
-
+def get_percentage(part, whole): #gets the percentage of part out of whole
+    if whole > 0:
+        return (part / whole) * 100
+    return 0
+        
 
 
 for project in data["projects"]:
@@ -205,5 +203,6 @@ for project in data["projects"]:
             if task["status"] == "in_progress":
                 in_progress_tasks += 1
 # print(f"In Progress: {in_progress_tasks}")
-    print(f"Project: {project_name}, Total Tasks: {total_tasks}, Compeleted: {completed_tasks}, In Progress: {in_progress_tasks}")
-
+    completed_percentage = get_percentage(completed_tasks, total_tasks)
+    in_progress_percentage = get_percentage(in_progress_tasks, total_tasks)
+    print(f"Project: {project_name}, Total Tasks: {total_tasks}, Compeleted: {completed_percentage}, In Progress: {in_progress_percentage}")
