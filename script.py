@@ -170,4 +170,40 @@ print("In Progress Tasks:", in_progress_tasks)
 # ]
 print("****************************************************************")
 
-#summery of all projects with completed and in progress tasks percentage
+#summery of all projects with completed and in progress tasks divided by 100
+# how many tasks out of 6 are completed? 3 out of 6
+# how many tasks out of 6 are in progress? 3 out of 6
+# all these out of 100
+
+# summery = {
+#     project_name: "Project Alpha",
+#     completed_tasks_perc: int,
+#     in_progress_tasks_perc: int
+# }
+
+# total_tasks = 6
+# completed_tasks = 3
+# in_progress_tasks = 3
+# completion_percentage = (completed_tasks / total_tasks) * 100
+
+
+
+
+for project in data["projects"]:
+    project_name = project["name"]
+    total_tasks = 0
+    completed_tasks = 0
+    in_progress_tasks= 0 #resetting for the second project
+    for team in project["team"]:
+        total_tasks += len(team["tasks"])
+# print(total_tasks) #prints the total number of the tasks ==> 6
+        for task in team["tasks"]:
+            if task["status"] == "completed":
+                completed_tasks += 1
+# print(f"Completed: {completed_tasks}") 
+        for task in team["tasks"]:
+            if task["status"] == "in_progress":
+                in_progress_tasks += 1
+# print(f"In Progress: {in_progress_tasks}")
+    print(f"Project: {project_name}, Total Tasks: {total_tasks}, Compeleted: {completed_tasks}, In Progress: {in_progress_tasks}")
+
