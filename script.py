@@ -118,7 +118,7 @@ print("****************************************************************")
 # sum of working times for each team in each project & each member in a project/team
 for project in data["projects"]:
     project_name = project["name"]
-    total_team_hours = 0 #resetting the total team hours for each team
+    total_team_hours = 0  # resetting the total team hours for each team
     # print(project["name"])
     for team_info in project["team"]:
         member_name = team_info["name"]
@@ -126,9 +126,10 @@ for project in data["projects"]:
         total_member_hours = sum(task["hours_logged"]
                                  for task in team_info["tasks"])
         total_team_hours += total_member_hours
-        print(f"{member_name}'s total hours on {project_name}: {total_member_hours}")
+        print(f"{member_name}'s total hours on {
+              project_name}: {total_member_hours}")
     print(f"Total Team Hours for {project_name}: {total_team_hours}")
-    #displays:
+    # displays:
     # Alice's total hours on Project Alpha: 15
     # Bob's total hours on Project Alpha: 6
     # Total Team Hours for Project Alpha: 21
@@ -136,3 +137,15 @@ for project in data["projects"]:
     # Dave's total hours on Project Beta: 0
     # Total Team Hours for Project Beta: 15
 print("****************************************************************")
+
+# list of all in-progress tasks with team member name and project name
+in_progress_tasks= []
+for project in data["projects"]:
+    project_name = project["name"]
+    for team_info in project["team"]:
+        member_name = team_info["name"]
+        for task in team_info["tasks"]:
+            if task["status"] == "in_progress":
+                task_name = task["description"]
+                in_progress_tasks.append(f"Task: {task_name}, Project Name: {project_name}, Member Name: {member_name}")
+pprint(in_progress_tasks)
