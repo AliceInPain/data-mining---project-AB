@@ -1,89 +1,10 @@
 from pprint import pprint
+import json
+
+with open("file.json", mode="r", encoding="utf-8") as read_file:
+    data = json.load(read_file)
 
 
-data = {
-    "projects": [
-        {
-            "project_id": 1,
-            "name": "Project Alpha",
-            "team": [
-                {
-                    "member_id": 101,
-                    "name": "Alice",
-                    "role": "Developer",
-                    "tasks": [
-                        {
-                            "task_id": 1001,
-                            "description": "Develop login module",
-                            "status": "completed",
-                            "hours_logged": 10
-                        },
-                        {
-                            "task_id": 1002,
-                            "description": "Implement OAuth",
-                            "status": "in_progress",
-                            "hours_logged": 5
-                        }
-                    ]
-                },
-                {
-                    "member_id": 102,
-                    "name": "Bob",
-                    "role": "Tester",
-                    "tasks": [
-                        {
-                            "task_id": 1003,
-                            "description": "Test login module",
-                            "status": "completed",
-                            "hours_logged": 4
-                        },
-                        {
-                            "task_id": 1004,
-                            "description": "Prepare test cases for OAuth",
-                            "status": "in_progress",
-                            "hours_logged": 2
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "project_id": 2,
-            "name": "Project Beta",
-            "team": [
-                {
-                    "member_id": 103,
-                    "name": "Charlie",
-                    "role": "Developer",
-                    "tasks": [
-                        {
-                            "task_id": 1005,
-                            "description": "Design database schema",
-                            "status": "completed",
-                            "hours_logged": 8
-                        },
-                        {
-                            "task_id": 1006,
-                            "description": "Develop API endpoints",
-                            "status": "in_progress",
-                            "hours_logged": 7
-                        }
-                    ]
-                },
-                {
-                    "member_id": 104,
-                    "name": "Dave",
-                    "role": "Project Manager",
-                    "tasks": []
-                }
-            ]
-        }
-    ]
-}
-
-
-
-        
 # list of all projects with members and tasks
 for key, value in data.items():
     if key == "projects":
@@ -154,55 +75,55 @@ for project in data["projects"]:
                 in_progress_tasks.append([f"Task Description: {task_name}, Project Name: {
                                          project_name}, Member Name: {member_name}"])
 print("In Progress Tasks:", in_progress_tasks)
-    # displays:
-    # In Progress Tasks: [
-    # [
-    # 'Task Description: Implement OAuth,
-    # Project Name: Project Alpha,
-    # Member Name: Alice'
-    # ],
-    # [
-    # 'Task Description: Prepare test cases for OAuth,
-    # Project Name: Project Alpha,
-    # Member Name: Bob'
-    # ],
-    # [
-    # 'Task Description: Develop API endpoints,
-    # Project Name: Project Beta,
-    # Member Name: Charlie'
-    # ]
-    # ]
+# displays:
+# In Progress Tasks: [
+# [
+# 'Task Description: Implement OAuth,
+# Project Name: Project Alpha,
+# Member Name: Alice'
+# ],
+# [
+# 'Task Description: Prepare test cases for OAuth,
+# Project Name: Project Alpha,
+# Member Name: Bob'
+# ],
+# [
+# 'Task Description: Develop API endpoints,
+# Project Name: Project Beta,
+# Member Name: Charlie'
+# ]
+# ]
 print("****************************************************************")
 
-#summery of all projects with completed and in progress tasks divided by 100
+# summery of all projects with completed and in progress tasks divided by 100
 # how many tasks out of 6 are completed? 3 out of 6
 # how many tasks out of 6 are in progress? 3 out of 6
 # all these out of 100
 
 
-def get_percentage(part, whole): #gets the percentage of part out of whole
+def get_percentage(part, whole):  # gets the percentage of part out of whole
     if whole > 0:
         return (part / whole) * 100
     return 0
-        
 
 
 for project in data["projects"]:
     project_name = project["name"]
     total_tasks = 0
     completed_tasks = 0
-    in_progress_tasks= 0 #resetting for the second project
+    in_progress_tasks = 0  # resetting for the second project
     for team in project["team"]:
         total_tasks += len(team["tasks"])
 # print(total_tasks) #prints the total number of the tasks ==> 6
         for task in team["tasks"]:
             if task["status"] == "completed":
                 completed_tasks += 1
-# print(f"Completed: {completed_tasks}") 
+# print(f"Completed: {completed_tasks}")
         for task in team["tasks"]:
             if task["status"] == "in_progress":
                 in_progress_tasks += 1
 # print(f"In Progress: {in_progress_tasks}")
     completed_percentage = get_percentage(completed_tasks, total_tasks)
     in_progress_percentage = get_percentage(in_progress_tasks, total_tasks)
-    print(f"Project: {project_name}, Total Tasks: {total_tasks}, Compeleted: {completed_percentage}, In Progress: {in_progress_percentage}")
+    print(f"Project: {project_name}, Total Tasks: {total_tasks}, Compeleted: {
+          completed_percentage}%, In Progress: {in_progress_percentage}%")

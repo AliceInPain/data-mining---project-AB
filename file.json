@@ -1,10 +1,10 @@
 {
   "projects": [
-    { /*project1*/
+    {
       "project_id": 1,
       "name": "Project Alpha",
       "team": [
-        { /*member1*/
+        {
           "member_id": 101,
           "name": "Alice",
           "role": "Developer",
@@ -23,7 +23,7 @@
             }
           ]
         },
-        { /*member2*/
+        {
           "member_id": 102,
           "name": "Bob",
           "role": "Tester",
@@ -44,11 +44,11 @@
         }
       ]
     },
-    { /*project2*/
+    {
       "project_id": 2,
       "name": "Project Beta",
       "team": [
-        { /*member1*/
+        {
           "member_id": 103,
           "name": "Charlie",
           "role": "Developer",
@@ -67,7 +67,7 @@
             }
           ]
         },
-        { /*member2*/
+        {
           "member_id": 104,
           "name": "Dave",
           "role": "Project Manager",
